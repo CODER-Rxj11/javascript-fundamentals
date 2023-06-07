@@ -1,0 +1,172 @@
+DAY - 01
+
+LET - es6 - local scopic - Reference Error - a is not defined
+CONST - es6 - local scopic - Reference Error - a is not defined
+VAR - es5 - global scopic 
+
+DECLARATION - declare a variable
+INITIALIZATION - assign a value 
+EXECUTION - run
+
+HOISTING
+-> TO USE SOMETHING BEFORE CREATING
+-> VARIABLE ARE PARTIALLY HOISTED
+
+
+COMPILER - TO FIND THE SYNTACTICAL ERROR IN OUR CODE - AT DECLARATION AND INITIALIZATION PHASE
+-> At initialization phase, by default it assigns undefined value.
+-> Thats why variable are called as partially hoisited.
+INTERPRETER - TO FIND OUT THE RUNTIME ERROR IN OUR CODE - AT EXECUTION PHASE
+
+RUNTIME ERROR - EXCUTION TIME ERRORS
+
+TEMPORAL DEAD ZONE 
+-> Its the concept of local scopic variable which stucts in the phase of compile time and run time as not assigning the value of undefined to the variable.
+
+#FUNCTIONS ARE FULLY HOISTED
+
+# MUTABLES VS IMMUTABLES
+-> CHANGES IN ORIGINAL DATA DIRECTLY WITHOUT INVOLVING CHANGE IN COPY VERSION IS MUTABLE - REFERENCE DATA TYPE/NON PRIMITIVE - ARRAY , OBJECT
+-> CHANGES IN COPY DATA WITHOUT CHANGES ITS ORIGINAL DATA IS IMMUTABLE - PRIMITIVE DATA TYPES - NAN, BOOL, STRING.UNDEFINED
+
+#SPREAD OPERATOR
+-> MANUALLY COPY OF ORIGINAL DATA 
+-> FOR MUTABLE DATA , ITS IS WIDELY USED 
+
+# REST OPERATOR
+-> USED IN FUNCTION PARAMETER
+-> USED FOR UNLIMITED NUMBER OF PARAMETERS
+-> VARIABLE LENGTH PARAMETER USED REST OPERATOR
+
+DAY - 02
+
+# NULLISH COALESHING OPERATOR (??) - H.W.
+-> The nullish coalescing (??) operator is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
+-> falsy value (including false,0 (zero),'' or “” (empty string),null,undefined,NaN)
+
+Eg:- const nullValue = null;
+const emptyText = ""; // falsy
+const someNumber = 42;
+
+const valA = nullValue ?? "default for A";
+const valB = emptyText ?? "default for B";
+const valC = someNumber ?? 0;
+
+console.log(valA); // "default for A"
+console.log(valB); // "" (as the empty string is not null or undefined)
+console.log(valC); // 42
+
+
+# JAVASCRIPT SPECIALS - H.W.
+-> Javscripts supports some special values such as :
+1. undefined : This value represents the absence of a value. It is often used as a default value for variables that have not yet been assigned a value.
+2. null : This value represents a null object. It is often used to represent the absence of an object.
+3. true and false : These values represent the Boolean values true and false, respectively.
+4. NaN : This value represents a Not-a-Number value. It is often used to represent invalid numbers, such as 0/0.
+5. Infinity and -Infinity : These values represent positive and negative infinity, respectively.
+
+-> Javscript also supports some special operators such as :
+1. Logical NOT (!): This operator inverts the value of its operand. For example, !true is false and !false is true.
+2. Conditional Operator (?:): This operator evaluates two expressions and returns the value of the first expression if it is truthy, or the value of the second expression if it is falsy. For example, x = y ? y : 0 will set the variable x to the value of y if y is truthy, or 0 if y is falsy.
+3. Comma Operator (,): This operator evaluates its two operands and returns the value of the second operand. For example, the code x = 1, y = 2 will set the variable x to 1 and the variable y to 2.
+
+# IIFE - H.W.
+-> An IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. The name IIFE is promoted by Ben Alman in his blog.
+
+Examples :
+(function () {
+  // …
+})();
+
+(() => {
+  // …
+})();
+
+(async () => {
+  // …
+})();
+
+# Recurrsion 
+-> A function that calls itself is called a recursive function.
+
+Example :-
+function recurse() {
+    // function code
+    recurse();
+    // function code
+}
+
+recurse();
+
+# JAVASCRIPT ENGINE
+-> C>JAVA>PYTHON in order with speed 
+-> Transferring of code into machine launguage
+
+#HLL AND LLL
+-> HUMAN UNDERSTANDABLE CORE - Py, Js,Java Etc - HLL
+-> To run hardware with the software 
+-> To convert our hardware (HLL) into software (LLL) with help of Compiler(C launguage) covertes the code into bytecode into machine code/ binary code
+
+HLL -> Compiler -> bytecode -> machine code -> binary code -> LLL
+
+# ADVANTAGE OF JAVASCRIPT OVER OTHER LAUNGUAGES WITH ENGINE
+-> Chrome is much secure, updated, modern and fast = V8 ENGINE with Just In Time (JIT)
+-> JIT Compiler => Combination of compiler and INTERPRETER
+
+-> Each browser has inbuilt javascript !!!
+-> ES(ECMA SCRIPT) COMMUNITY - Decide to use js with every browser engine = MOKA(Early name)
+-> Branden lee => Discovered -> 10 days 
+
+# BABEL -> software !IMPORTANT
+-> Any version of javascript passed thru babel only gives es5 js as an output
+
+Ques :- Does babel still passed es5 or move to es6?
+
+# EXCUTION CONTEXT
+-> The inbuilt functionalities of javascript just after creating js file
+-> These are the features to access parental properties
+
+-> GLOBAL EXCUTION CONTEXT => Scope
+-> HOISTING -> Access before creating
+-> GLOBAL OBJECT -> window/global(Node) -> File working environment -> Global object of js/nodejs/reactjs
+-> THIS -> ALso a global obeject
+-> VARIABLE ENVIRONMENT -> Let, const, var access to its prior!!
+
+# FUNCTIONS 
+
+-> IMPORTANT Characterstics
+@Lexical Environement
+@Lexical Scope
+
+#Lexical Environement-> Created where function is created not where it is called 
+#Lexical Scope -> Space where its environment  is created
+
+-> Imp parameters of function creation
+1. This -> Object of the parent 
+2. Arguments -> Parameters passing thru the function calling
+3. Variable environment -> Variable creating possiblity
+
+Normal scope is a normal scope enclosed by brackets 
+Functional scope is a Global EXECUTION Context which is lexically scoped and cannot be used outside the brackets or function definations
+
+Scope Chaining -> CLOSURE
+Exection context of parent function can be accessed by the child function and the child function can be accessing all the variable paraments 
+
+FUNCTION CALLING -> FUNCTION INVOKATION
+
+#LOCAL VARIABLE -> const , let -> Block Scopic 
+    -> Created within a scope and start with local scope and end with the scope only
+#GLOBAL VARIABLE -> var 
+-> Can be access globally thru the program
+    -> Terminated with end of the scope
+-> PROBLEM FACED
+    -> SAVED IN MEMORY AT HARDWARE LEVEL WITH STACK AND HEAP
+    -> Thus taking extra space thru the program till application terminates.
+
+# CALL APPLY BIND 
+
+#CALL
+-> Method to use prebuild function from its lexically environment to our enviroment
+
+# CURRYING 
+-> To stop the invocation of function as per the requirements of parameters and invoke the function as per the needs.
